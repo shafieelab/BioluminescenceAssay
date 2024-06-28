@@ -86,7 +86,7 @@ We encourage you to follow these steps to reproduce the quantitative results in 
    - Use the same concentrations and conditions as described.
 
 3. **Data Analysis:**
-   - Use the provided OpenCV script to analyze the bioluminescence images. [text](../PythonScript/IntensityCalcCode.py) 
+   - Use the provided OpenCV script to analyze the bioluminescence images. [IntensityCalcCode.py](../PythonScript/IntensityCalcCode.py) 
    - Compare the results with the expected outputs mentioned in the manuscript.
 
 For detailed information, refer to the supplementary information provided in the manuscript.
