@@ -37,21 +37,10 @@ def brightness(img):
 
 if __name__ == '__main__':
 
-    root_dir = ''
-    neg_folder_name = 'Neg/'
-    pos_folder_name = 'Pos/'
+    sample_dir = './SampleData/'
 
-    for image in os.listdir(root_dir + pos_folder_name):
+    for image in os.listdir(sample_dir):
         if ".jpg" in image or ".png" in image:
-            img = cv2.imread(root_dir + pos_folder_name + "/" + image)
-
+            img = cv2.imread(sample_dir + "/" + image)
             bri = brightness(img)
-            # print('POS',  bri[0],bri[1],bri[2] ,image, sep='\t')
-            print('POS', bri, image, sep='\t')
-        # print()
-    for image in os.listdir(root_dir + neg_folder_name):
-        if ".jpg" in image or ".png" in image:
-            img = cv2.imread(root_dir + neg_folder_name + "/" + image)
-            bri = brightness(img)
-            # print('NEG',  bri[0],bri[1],bri[2] ,image, sep='\t')
-            print('NEG', bri, image, sep='\t')
+            print(image, bri,  sep='\t')
