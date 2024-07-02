@@ -66,6 +66,46 @@ Bioluminescence holds notable promise as a modality in diagnostics due to its hi
    python IntensityCalcCode.py
    ```
 
+### Pseudo Code
+
+```python
+Algorithm BrightnessDetection
+    Input: img
+    Output: yellow_brightness
+
+    // Step 1: Define Region of Interest
+    top ← 250
+    right ← 1150
+    height ← 900
+    width ← 1600
+    img_roi ← crop_image(img, top, right, height, width)
+
+    // Step 2: Convert to HSV
+    hsv_img ← convert_to_hsv(img_roi)
+
+    // Step 3: Define Yellow Boundaries
+    lower_bound ← [20, 50, 50]
+    upper_bound ← [50, 255, 255]
+
+    // Step 4: Create Mask for Yellow
+    mask ← in_range(hsv_img, lower_bound, upper_bound)
+
+    // Step 5: Remove Noise from Mask
+    kernel ← create_kernel(7, 7)
+    mask ← morphological_close(mask, kernel)
+    mask ← morphological_open(mask, kernel)
+
+    // Step 6: Segment Yellow Regions
+    segmented_img ← bitwise_and(hsv_img, hsv_img, mask)
+
+    // Step 7: Calculate Brightness
+    yellow_brightness ← sum(segmented_img[:, :, 2])
+
+    return yellow_brightness
+End Algorithm
+```
+
+
 ### Expected Output
 - The demo script will process the sample data and display bioluminescence intensity values.
 
